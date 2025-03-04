@@ -1,0 +1,64 @@
+.container_sub{
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */ /* Full viewport height, adjust as needed */
+    padding: 25px;
+}
+
+.container{
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    display: flex;
+    max-width: 600px;
+}
+
+.container_text{
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 600px;
+}
+
+.curved-line {
+  width: 100%; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+}
+
+.horizontal-line {
+    border-top: 1px solid #999; /* Creates the line */
+    margin: 20px 0; /* Adds some space above and below the line */
+}
+
+hr {
+    max-width: 600px; /* Adjust the percentage as needed */
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 50%;
+  }
+
+.text-button {
+    background: none;/* or any color you prefer */
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline; /* optional, if you want it to look like a link */
+}
+  
+.text-button:hover,
+.text-button:focus {
+    text-decoration: none; /* optional style for hover and focus states */
+}
+
+#container_first{
+    padding-top: 0;
+}
+
+.container_text{
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.footer_container{
+    padding-top: 75px;
+}

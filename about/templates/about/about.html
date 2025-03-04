@@ -1,0 +1,43 @@
+{% extends "frames.html" %}
+
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'about/about.css' %}">
+
+<div class="main_container">
+    <!-- Info Main Component -->
+
+    <div class="container">
+        <h1>About</h1>
+    </div>
+
+    <hr class="my-custom-hr" />
+
+    <div class="container_text">
+        <div class="container_text" id="container_first">
+            <p>Hello! I'm Diogo, a self-taught developer and designer from Portugal, at the moment i am study electronics and automation, at Ipca. Currently working as a Electrician.</p>
+        </div>
+        <div class="container_text">
+            <p>I'm also a self-taught designer and developer with a passion for creating products that i can use personally.</p>
+        </div>
+        <div class="container_text">
+            <p>
+                This website is using the Framework Django.
+            </p>
+        </div>
+        <div class="container_text">
+            <button class="text-button" onclick="sendEmail()">Contact me via email</button>
+        </div>  
+    </div>
+</div>
+
+<script>
+    function sendEmail() {
+        window.location.href = "mailto:diogomendesworks@gmail.com?subject=Subject&body=Message";
+    }
+</script>
+{% endblock %}

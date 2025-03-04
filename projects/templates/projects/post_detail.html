@@ -1,0 +1,19 @@
+{% extends "frames.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'index/index.css' %}">
+
+<div class="container_post">
+    <article>
+        <h1>{{ post.title }}</h1>
+        <h2>{{ post.subTitle }}</h2>
+        <p style="text-align: justify; padding-bottom: 25px;">{{ post.content }}</p>
+        <small>Category: {{ post.category }}</small>
+        <p>Published on: {{ post.created_at }}</p>
+        <a href="{% url 'home' %}">Back</a>
+    </article>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles/main.css'%}">
+</head>
+<body>
+    <div class="container_sub">
+      <div class="container">
+          <div>   
+            <img 
+            src="{% static 'images/me.jpg' %}"
+            alt="A picture of me"
+            width="125"
+            style="margin-bottom: var(--space-3);"
+            >
+          </div>
+          <div class="first_info">
+              <div class="name_info">
+                  <div>
+                      <h2>Diogo Mendes</h2>
+                  </div>
+                  <div>
+                      <!-- <p id="descripiton_what_i_do_site">designer and coder</p> -->
+                      <p id="descripiton_site">Hi, i like to design and build stuff, checkout my projects</p>
+                  </div>
+              </div>
+              <div class="links_space">
+                <a href="{% url 'home' %}">projects</a>
+                <a href="{% url 'about' %}">about</a>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <main>
+        {% block content %}
+        <!-- Child templates will inject content here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+            <div class="footer">
+              <div class="content_second">
+                <a class="link_style" href="https://github.com/dmdiogomendes" target="_blank">GitHub</a>
+                <a class="link_style" href="https://www.instagram.com/dmdiogomendes/" target="_blank">Instagram</a>
+                <a class="link_style" href="https://www.linkedin.com/in/diogo-mendes-656715149/" target="_blank">LinkedIn</a>
+                <a class="link_style" href="https://www.youtube.com/channel/UCwXhZ2FWYWYx2xQHSl_dpag" target="_blank">YouTube</a>
+                <button class="link_style_special" onclick="sendEmail()">Contact</button>
+              </div>
+              <div class="content">
+                &copy; 2025 Diogo Mendes
+              </div>
+            </div>
+          
+            <script>
+              function sendEmail() {
+                window.location.href = "mailto:diogomendesworks@gmail.com?subject=Subject&body=Message";
+              }
+            </script>
+
+    </footer>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "frames.html" %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'index/index.css' %}">
+
+<div class="main_container">
+    <div class="container_projects">
+        <h1 id="project_title">Projects</h1>
+        <p>Check ou my projects</p>
+    </div>
+
+    <hr class="my-custom-hr"/>
+
+    <!--  -->
+
+    {% for post in posts %}
+    <div class="container_post">
+        <article>
+            <h2>{{ post.title }}</h2>
+            <p id="post_subtitle">{{ post.subTitle }}</p>
+            <small id="post_category">{{ post.category }}</small>
+            {% with post.content.split|slice:":30" as content_preview %}
+            <p style="text-align: justify;">{{ content_preview|join:" " }}...</p>
+            {% endwith %}
+            <div>
+                <a href="{% url 'post' post.id %}">ver mais</a>
+            </div>
+            <small id="post_date">Published on {{ post.created_at }}</small>
+        </article>
+    </div>
+    
+    {% endfor %}
+
+</div>
+
+{% endblock %}
