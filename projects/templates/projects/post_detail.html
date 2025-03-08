@@ -9,10 +9,20 @@
 <div class="container_post">
     <article>
         <h1>{{ post.title }}</h1>
-        <h2>{{ post.subTitle }}</h2>
-        <p style="text-align: justify; padding-bottom: 25px;">{{ post.content }}</p>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 100%; height: auto;">
+        {% endif %}
+        <h3>{{ post.subTitle }}</h3>
+        <div class="post-content">
+            <p>{{ post.content|linebreaks }}</p>
+        </div>
+        {% if post.link %}
+                <a href="{{ post.link }}">Link to see in more detail</a>
+        {% endif %}
+        <br>
         <small>Category: {{ post.category }}</small>
         <p>Published on: {{ post.created_at }}</p>
+        <br>
         <a href="{% url 'home' %}">Back</a>
     </article>
 </div>

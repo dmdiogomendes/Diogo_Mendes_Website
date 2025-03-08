@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     subTitle = models.CharField(max_length=200)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
-    content = models. TextField()
+    content = models.TextField()
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True)

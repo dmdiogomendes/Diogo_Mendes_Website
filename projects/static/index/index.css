@@ -72,4 +72,10 @@ hr {
 
 #post_date{
     color: #999;
+
 }
+
+.post-content p{
+    margin-bottom: 1.5em; /* Space between paragraphs */
+    line-height: 1.5; /* Improve readability */
+} 
