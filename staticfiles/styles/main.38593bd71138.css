@@ -1,0 +1,106 @@
+/* header start */
+
+.container_sub{
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */ /* Full viewport height, adjust as needed */
+    padding: 25px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container_sub{
+        padding: 0;
+    }
+    .footer{
+        padding-right: 16px;
+        padding-left: 16px;
+    }  
+  }
+
+.container {
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    max-width: 600px;
+}
+
+.first_info{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    align-content: center;
+    justify-content: center;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.name_info{
+    flex:1
+}
+
+.first_info h2{
+    margin-block-start:0;
+    margin-block-end:0
+}  
+
+.first_info p{
+    margin-block-start:0
+}  
+
+.links_space a{
+    color: inherit; /* This makes the link use the text color of its parent */
+    text-decoration: none; /* Removes underline from the link */
+    background-color: transparent;
+    color: rgb(90, 90, 85);
+}
+
+.links_space_not_first{
+    padding: 5px;
+}
+
+/* header close */
+
+.sub_footer{
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if needed */ /* Full viewport height, adjust as needed */
+}
+.footer {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 12.5px;
+    padding-top: 12.5px;
+    padding-bottom: 25px;
+}
+.content{
+    flex:1;
+}
+
+.link_style{
+    padding-right: 10px;
+    text-decoration: none;
+    color:black;
+}
+
+.link_style_special{
+    background: none;
+    color: blue; /* or any color you prefer */
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    padding-right: 10px;
+    text-decoration: none;
+    color:black;
+}
+
+#descripiton_what_i_do_site{
+    margin: 0;
+}
+
+#descripiton_site{
+    color: #999;
+}

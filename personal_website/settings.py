@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-pj8g7u8^70_us(xkva3$9^sr%3la1se%6&jras3^(7i+12t*6k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
+# ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'about',
-    'projects'
+    'projects',
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = 'personal_website.urls'
@@ -119,7 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 # URL to access static files in templates
-STATIC_URL = '/staticfiles/'
+STATIC_URL = 'static/'
 
 # Directory for collected static files (for deployment)
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -134,6 +138,12 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
