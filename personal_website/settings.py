@@ -35,10 +35,10 @@ ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
 ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
 
 # Set ALLOWED_HOSTS based on environment
-if ENVIRONMENT == 'production':
-    ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
-else:
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# if ENVIRONMENT == 'production':
+#     ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
+# else:
+#     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
