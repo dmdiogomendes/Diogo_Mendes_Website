@@ -119,7 +119,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 # URL to access static files in templates
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 # Directory for collected static files (for deployment)
 STATIC_ROOT = BASE_DIR / 'staticfiles'
