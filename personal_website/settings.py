@@ -26,10 +26,19 @@ SECRET_KEY = 'django-insecure-pj8g7u8^70_us(xkva3$9^sr%3la1se%6&jras3^(7i+12t*6k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# 
 ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
 
 # ALLOWED_HOSTS = []
 
+# Environment-specific settings
+ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
+
+# Set ALLOWED_HOSTS based on environment
+if ENVIRONMENT == 'production':
+    ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
+else:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -133,17 +142,23 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# if ENVIRONMENT != 'production':
+#     STORAGES = {
+#     # ...
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
+
 STORAGES = {
-    # ...
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
