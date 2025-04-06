@@ -24,11 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pj8g7u8^70_us(xkva3$9^sr%3la1se%6&jras3^(7i+12t*6k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-# 
+DEBUG = False
+ 
 ALLOWED_HOSTS = ['web-production-8eac.up.railway.app','diogomendes.com']
 
+# Depois voltar a comentar isto
 # ALLOWED_HOSTS = []
 
 # Environment-specific settings
@@ -138,25 +138,25 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Additional static file locations (for development)
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# if ENVIRONMENT != 'production':
-#     STORAGES = {
-#     # ...
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
-
-STORAGES = {
+if ENVIRONMENT != 'production':
+    STORAGES = {
+    # ...
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+# STORAGES = {
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
 
 
 
