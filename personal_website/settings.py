@@ -12,35 +12,26 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-pj8g7u8^70_us(xkva3$9^sr%3la1se%6&jras3^(7i+12t*6k'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-# 
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
 ALLOWED_HOSTS = ['web-production-8eac.up.railway.app','diogomendes.com']
 
 # ALLOWED_HOSTS = []
 
 # Environment-specific settings
 ENVIRONMENT = os.getenv('DJANGO_ENV', 'development')
-
-# Set ALLOWED_HOSTS based on environment
-# if ENVIRONMENT == 'production':
-#     ALLOWED_HOSTS = ['web-production-8eac.up.railway.app']
-# else:
-#     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -97,6 +88,17 @@ DATABASES = {
 }
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('MYSQLDATABASE'),
+        'USER': os.environ.get('MYSQLUSER'),
+        'PASSWORD': os.environ.get('MYSQLPASSWORD'),
+        'HOST': os.environ.get('MYSQLHOST'),
+        'PORT': os.environ.get('MYSQLPORT', '3306'),
+    }
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -144,13 +146,6 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# if ENVIRONMENT != 'production':
-#     STORAGES = {
-#     # ...
-#     "staticfiles": {
-#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-#     },
-# }
 
 STORAGES = {
     "default": {
